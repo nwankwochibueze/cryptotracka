@@ -1,4 +1,4 @@
-const EXCHANGERATE_API_KEY = process.env.NEXT_PUBLIC_EXCHANGERATE_API_KEY
+const EXCHANGERATE_API_KEY = process.env.EXCHANGERATE_API_KEY
 
 export interface ExchangeRates {
   base: string

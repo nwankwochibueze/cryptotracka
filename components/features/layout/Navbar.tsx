@@ -26,12 +26,12 @@ export function Navbar() {
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2">
               <TrendingUp className="h-6 w-6" />
-              <span className="font-bold text-xl">CryptoTracker</span>
+              <span className="font-bold text-xl">CoinPeek</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
               <Button variant="ghost" asChild>
-                <Link href="/">
+                <Link href="/markets">
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Markets
                 </Link>
