@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { LayoutGrid, List } from "lucide-react"
 
 export function CoinsView() {
-  const { data: coins, isLoading, error } = useCoins(100)
+  const { data: coins, isLoading, error } = useCoins(20)
   const [viewMode, setViewMode] = useState<"grid" | "table">("table")
 
   if (error) {

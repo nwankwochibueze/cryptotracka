@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { Coin } from "@/types/coin"
 
-export function useCoins(limit: number = 100) {
+export function useCoins(limit: number = 20) {
   return useQuery<Coin[]>({
     queryKey: ["coins", limit],
     queryFn: async () => {
@@ -11,7 +11,7 @@ export function useCoins(limit: number = 100) {
       }
       return response.json()
     },
-    staleTime: 60 * 1000, // 1 minute
-    refetchInterval: 30 * 1000, // Refetch every 30 seconds for live prices
+    staleTime: 10 * 60 * 1000,
+    refetchInterval: 10 * 60 * 1000,
   })
 }
