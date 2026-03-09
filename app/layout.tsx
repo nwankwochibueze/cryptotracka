@@ -32,10 +32,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <div className="flex min-h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col">
+            {/* Gradient clipped to left half only */}
+            <div className="absolute top-0 left-0 -z-10 w-3/4 h-[700px] overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
+              <div className="absolute top-0 left-0 w-[900px] h-[700px] bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/20 via-primary/5 to-transparent" />
+            </div>
             <Navbar />
             <main className="flex-1">{children}</main>
-            {/* <Footer /> */}
           </div>
           <Toaster />
         </Providers>

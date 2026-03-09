@@ -19,13 +19,13 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left Side: Logo and Nav Links */}
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2">
-              <TrendingUp className="h-6 w-6" />
+              {/* <TrendingUp className="h-6 w-6" /> */}
               <span className="font-bold text-xl">CoinPeek</span>
             </Link>
 
@@ -81,7 +81,7 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+        <div className="md:hidden border-t bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {/* --- ADD SEARCH BAR FOR MOBILE HERE --- */}
