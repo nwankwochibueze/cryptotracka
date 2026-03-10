@@ -30,13 +30,7 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
-            : "bg-transparent border-b border-border/40"
-        }`}
-      >
+      <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Left Side: Logo */}
