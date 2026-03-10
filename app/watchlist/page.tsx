@@ -22,7 +22,7 @@ export default function WatchlistPage() {
   if (isLoading) {
     return (
       <div className="container py-8">
-        <div className="space-y-4">
+        <div className="container px-4 py-8 space-y-8">
           <Skeleton className="h-10 w-64" />
           {Array.from({ length: 5 }).map((_, i) => (
             <Skeleton key={i} className="h-20 w-full" />
@@ -35,7 +35,7 @@ export default function WatchlistPage() {
   // Empty state - no favorites
   if (favorites.length === 0) {
     return (
-      <div className="container py-8">
+      <div className="container px-4 py-8">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl font-bold">My Watchlist</h1>
@@ -73,7 +73,7 @@ export default function WatchlistPage() {
   }
 
   return (
-    <div className="container py-8 space-y-8">
+    <div className="container px-4 py-8 space-y-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>

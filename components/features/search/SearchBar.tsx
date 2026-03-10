@@ -1,4 +1,4 @@
-// components/features/search/search.tsx
+// components/features/search/SearchBar.tsx
 "use client";
 
 import { useState } from "react";
@@ -19,10 +19,15 @@ import {
 } from "@/components/ui/popover";
 import { Search } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
-import { cn } from "@/lib/utils"; // <-- Make sure this import is present
+import { cn } from "@/lib/utils";
 
-// --- CHANGE 1: Add { className }: { className?: string } to the function's props ---
-export function SearchBar({ className }: { className?: string }) {
+// --- CHANGE 1: Define props interface including the new callback ---
+interface SearchBarProps {
+  className?: string;
+  onResultClick?: () => void; // Optional callback function
+}
+
+export function SearchBar({ className, onResultClick }: SearchBarProps) {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearch = useDebounce(searchQuery, 300);
@@ -43,6 +48,11 @@ export function SearchBar({ className }: { className?: string }) {
     setOpen(false);
     setSearchQuery("");
     router.push(`/coin/${coinId}`);
+    
+    // --- CHANGE 2: Call the callback function if it was provided ---
+    if (onResultClick) {
+      onResultClick();
+    }
   };
 
   return (
@@ -52,7 +62,6 @@ export function SearchBar({ className }: { className?: string }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          // --- CHANGE 2: Use the cn() function to merge classes ---
           className={cn("w-full justify-between", className)}
         >
           <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />

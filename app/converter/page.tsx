@@ -90,7 +90,7 @@ export default function ConverterPage() {
   }
 
   return (
-    <div className="container py-8 space-y-8">
+    <div className="container px-4 py-8 space-y-8">
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold">Currency Converter</h1>

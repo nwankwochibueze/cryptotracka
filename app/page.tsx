@@ -19,7 +19,7 @@ export default function HomePage() {
       <section className="relative flex items-center px-8 py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
-          <div className="flex flex-col items-start text-left space-y-6">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-6">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight -mt-4">
               Real-time crypto
               <br />
@@ -33,8 +33,12 @@ export default function HomePage() {
               — all in one place.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Button size="lg" asChild className="text-base px-8">
+            <div className="flex flex-col sm:flex-row gap-5 pt-2">
+              <Button
+                size="lg"
+                asChild
+                className="text-base px-8 bg-foreground text-background hover:bg-foreground/90"
+              >
                 <Link href="/markets">
                   Explore Markets
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -44,7 +48,7 @@ export default function HomePage() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="text-base px-8"
+                className="text-base px-8 border-primary text-primary hover:bg-primary/10"
               >
                 <Link href="/portfolio">My Portfolio</Link>
               </Button>
@@ -83,12 +87,12 @@ export default function HomePage() {
                   key={i}
                   className="absolute"
                   style={{
-                    width: "60px",
-                    height: "60px",
+                    width: "70px",
+                    height: "70px",
                     top: "50%",
                     left: "50%",
-                    marginTop: "-30px",
-                    marginLeft: "-30px",
+                    marginTop: "-35px",
+                    marginLeft: "-35px",
                     transform: `rotate(${i * 120}deg) translateY(-100px)`,
                   }}
                 >
@@ -99,8 +103,8 @@ export default function HomePage() {
                       <Image
                         src={image}
                         alt={`inner-${i}`}
-                        width={60}
-                        height={60}
+                        width={70}
+                        height={70}
                         className="rounded-full"
                       />
                     </div>
@@ -127,12 +131,12 @@ export default function HomePage() {
                   key={i}
                   className="absolute"
                   style={{
-                    width: "60px",
-                    height: "60px",
+                    width: "70px",
+                    height: "70px",
                     top: "50%",
                     left: "50%",
-                    marginTop: "-30px",
-                    marginLeft: "-30px",
+                    marginTop: "-35px",
+                    marginLeft: "-35px",
                     transform: `rotate(${i * 120}deg) translateY(-220px)`,
                   }}
                 >
@@ -141,8 +145,8 @@ export default function HomePage() {
                       <Image
                         src={image}
                         alt={`outer-${i}`}
-                        width={60}
-                        height={60}
+                        width={70}
+                        height={70}
                         className="rounded-full"
                       />
                     </div>
@@ -156,22 +160,22 @@ export default function HomePage() {
 
       {/* ── Stats ── */}
       <section className="px-4 py-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 text-center">
-          <div className="border-b pb-4">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16 text-center">
+          <div className="border-b pb-4 border-black">
             <p className="text-3xl font-bold text-primary">20+</p>
             <p className="text-sm text-muted-foreground mt-1">Coins Tracked</p>
           </div>
-          <div className="border-b pb-4">
+          <div className="border-b pb-4 border-black">
             <p className="text-3xl font-bold text-primary">Live</p>
             <p className="text-sm text-muted-foreground mt-1">Price Updates</p>
           </div>
-          <div className="border-b pb-4">
+          <div className="border-b pb-4 border-black">
             <p className="text-3xl font-bold text-primary">Free</p>
             <p className="text-sm text-muted-foreground mt-1">
               No Account Needed
             </p>
           </div>
-          <div className="border-b pb-4">
+          <div className="border-b pb-4 border-black">
             <p className="text-3xl font-bold text-primary">Fast</p>
             <p className="text-sm text-muted-foreground mt-1">
               Redis Powered Cache
@@ -182,7 +186,7 @@ export default function HomePage() {
 
       {/* ── Features ── */}
       <section className="px-4 py-24">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Everything you need to track crypto
@@ -194,77 +198,97 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-border/50 hover:border-primary/50 transition-colors">
-              <CardContent className="pt-6 space-y-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <BarChart3 className="h-5 w-5 text-primary" />
+            {/* Card 1 — Default */}
+            <Card className="border-border/50 hover:border-primary/50 transition-colors min-h-[220px] flex flex-col">
+              <CardContent className="pt-6 flex flex-col flex-1 justify-between">
+                <div className="space-y-3">
+                  <div className="h-14 w-14 rounded-xl bg-foreground flex items-center justify-center">
+                    <BarChart3 className="h-7 w-7 text-background" />
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug mt-4">
+                    Live market prices in real time.
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Real-time prices, market caps and 7-day sparkline charts for
+                    top coins.
+                  </p>
                 </div>
-                <h3 className="font-semibold">Live Markets</h3>
-                <p className="text-sm text-muted-foreground">
-                  Real-time prices, market caps and 7-day sparkline charts for
-                  top coins.
-                </p>
                 <Link
                   href="/markets"
-                  className="text-sm text-primary flex items-center gap-1 hover:gap-2 transition-all"
+                  className="flex items-center justify-between text-sm font-medium mt-6 pt-4 border-t border-border/50"
                 >
-                  View Markets <ArrowRight className="h-3.5 w-3.5" />
+                  View Markets <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="border-border/50 hover:border-primary/50 transition-colors">
-              <CardContent className="pt-6 space-y-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Star className="h-5 w-5 text-primary" />
+            {/* Card 2 — Orange background */}
+            <Card className="border-0 transition-colors min-h-[220px] flex flex-col bg-primary text-primary-foreground">
+              <CardContent className="pt-6 flex flex-col flex-1 justify-between">
+                <div className="space-y-3">
+                  <div className="h-14 w-14 rounded-xl bg-background flex items-center justify-center">
+                    <Star className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug mt-4 text-primary-foreground">
+                    Track your favourite coins easily.
+                  </h3>
+                  <p className="text-sm text-primary-foreground/70">
+                    Star your favourite coins and track them in one dedicated
+                    view.
+                  </p>
                 </div>
-                <h3 className="font-semibold">Watchlist</h3>
-                <p className="text-sm text-muted-foreground">
-                  Star your favourite coins and track them in one dedicated
-                  view.
-                </p>
                 <Link
                   href="/watchlist"
-                  className="text-sm text-primary flex items-center gap-1 hover:gap-2 transition-all"
+                  className="flex items-center justify-between text-sm font-medium mt-6 pt-4 border-t border-primary-foreground/20 text-primary-foreground"
                 >
-                  My Watchlist <ArrowRight className="h-3.5 w-3.5" />
+                  My Watchlist <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="border-border/50 hover:border-primary/50 transition-colors">
-              <CardContent className="pt-6 space-y-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Wallet className="h-5 w-5 text-primary" />
+            {/* Card 3 — White background */}
+            <Card className="border-border/50 transition-colors min-h-[220px] flex flex-col bg-background">
+              <CardContent className="pt-6 flex flex-col flex-1 justify-between">
+                <div className="space-y-3">
+                  <div className="h-14 w-14 rounded-xl bg-primary flex items-center justify-center">
+                    <Wallet className="h-7 w-7 text-primary-foreground" />
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug mt-4 text-foreground">
+                    Track your holdings and performance.
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Track your holdings, total value and performance over time.
+                  </p>
                 </div>
-                <h3 className="font-semibold">Portfolio</h3>
-                <p className="text-sm text-muted-foreground">
-                  Track your holdings, total value and performance over time.
-                </p>
                 <Link
                   href="/portfolio"
-                  className="text-sm text-primary flex items-center gap-1 hover:gap-2 transition-all"
+                  className="flex items-center justify-between text-sm font-medium mt-6 pt-4 border-t border-border/50 text-foreground"
                 >
-                  My Portfolio <ArrowRight className="h-3.5 w-3.5" />
+                  My Portfolio <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="border-border/50 hover:border-primary/50 transition-colors">
-              <CardContent className="pt-6 space-y-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <ArrowRightLeft className="h-5 w-5 text-primary" />
+            {/* Card 4 — Orange background */}
+            <Card className="border-0 transition-colors min-h-[220px] flex flex-col bg-foreground">
+              <CardContent className="pt-6 flex flex-col flex-1 justify-between">
+                <div className="space-y-3">
+                  <div className="h-14 w-14 rounded-xl bg-background flex items-center justify-center">
+                    <ArrowRightLeft className="h-7 w-7 text-foreground" />
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug mt-4 text-background">
+                    Convert crypto and fiat instantly.
+                  </h3>
+                  <p className="text-sm text-background/60">
+                    Instantly convert between crypto and fiat currencies at live
+                    rates.
+                  </p>
                 </div>
-                <h3 className="font-semibold">Converter</h3>
-                <p className="text-sm text-muted-foreground">
-                  Instantly convert between crypto and fiat currencies at live
-                  rates.
-                </p>
                 <Link
                   href="/converter"
-                  className="text-sm text-primary flex items-center gap-1 hover:gap-2 transition-all"
+                  className="flex items-center justify-between text-sm font-medium mt-6 pt-4 border-t border-background/20 text-background"
                 >
-                  Convert Now <ArrowRight className="h-3.5 w-3.5" />
+                  Convert Now <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
             </Card>
@@ -275,7 +299,7 @@ export default function HomePage() {
       {/* ── CTA ── */}
       <section className="px-4 py-24 mt-auto">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="rounded-2xl bg-primary/5 border border-primary/20 p-12 space-y-6">
+          <div className="rounded-2xl bg-background border border-primary/50 p-12 space-y-6">
             <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
               <TrendingUp className="h-6 w-6 text-primary" />
             </div>

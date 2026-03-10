@@ -46,7 +46,7 @@ export default function PortfolioPage() {
 
   if (isLoading) {
     return (
-      <div className="container py-8">
+      <div className="container px-4 py-8">
         <Skeleton className="h-10 w-64 mb-8" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <Skeleton className="h-32" />
@@ -60,7 +60,7 @@ export default function PortfolioPage() {
   // Empty state
   if (holdings.length === 0) {
     return (
-      <div className="container py-8">
+      <div className="container px-4 py-8">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl font-bold">My Portfolio</h1>
@@ -97,7 +97,7 @@ export default function PortfolioPage() {
   }
 
   return (
-    <div className="container py-8 space-y-8">
+    <div className="container px-4 py-8 space-y-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
