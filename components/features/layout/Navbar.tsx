@@ -20,21 +20,23 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <>
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent border-b border-transparent"
-      }`}>
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
+            : "bg-transparent border-b border-border/40"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Left Side: Logo */}
@@ -84,7 +86,11 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -99,10 +105,18 @@ export function Navbar() {
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-border">
-            <Link href="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+              onClick={closeMobileMenu}
+            >
               <span className="font-bold text-xl">CoinPeek</span>
             </Link>
-            <Button variant="ghost" onClick={closeMobileMenu} aria-label="Close navigation menu">
+            <Button
+              variant="ghost"
+              onClick={closeMobileMenu}
+              aria-label="Close navigation menu"
+            >
               <X className="h-6 w-6" />
             </Button>
           </div>
@@ -112,25 +126,41 @@ export function Navbar() {
               <SearchBar className="w-full" onResultClick={closeMobileMenu} />
             </div>
             <nav className="space-y-2">
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/markets" onClick={closeMobileMenu}>
                   <TrendingUp className="h-5 w-5 mr-3" />
                   Markets
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/watchlist" onClick={closeMobileMenu}>
                   <Star className="h-5 w-5 mr-3" />
                   Watchlist
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/portfolio" onClick={closeMobileMenu}>
                   <Wallet className="h-5 w-5 mr-3" />
                   Portfolio
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/converter" onClick={closeMobileMenu}>
                   <ArrowRightLeft className="h-5 w-5 mr-3" />
                   Converter
