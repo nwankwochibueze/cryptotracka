@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${syne.variable} ${dmSans.variable} antialiased`}>
         <Providers>
-          <div className="relative flex min-h-screen flex-col overflow-hidden">
+          <div className="relative flex min-h-screen flex-col">
             <div className="absolute top-0 left-0 -z-10 pointer-events-none">
               <div className="w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
             </div>
