@@ -30,87 +30,66 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-background border-b border-border"></header>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden ${
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        } transition-all duration-300 ease-in-out`}
-      >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-border">
-            <Link
-              href="/"
-              className="flex items-center gap-2"
-              onClick={closeMobileMenu}
-            >
-              <span className="font-bold text-xl">CoinPeek</span>
-            </Link>
-            <Button
-              variant="ghost"
-              onClick={closeMobileMenu}
-              aria-label="Close navigation menu"
-            >
-              <X className="h-6 w-6" />
-            </Button>
-          </div>
-
-          <div className="flex-1 overflow-auto p-6">
-            <div className="mb-8">
-              <SearchBar className="w-full" onResultClick={closeMobileMenu} />
+      <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center gap-2">
+                <span className="font-bold text-xl">CoinPeek</span>
+              </Link>
             </div>
-            <nav className="space-y-2">
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-14 text-lg"
-                asChild
-              >
-                <Link href="/markets" onClick={closeMobileMenu}>
-                  <TrendingUp className="h-5 w-5 mr-3" />
+
+            {/* Center: Navigation Links */}
+            <nav className="hidden md:flex items-center gap-1">
+              <Button variant="ghost" asChild>
+                <Link href="/markets">
+                  <TrendingUp className="h-4 w-4 mr-2" />
                   Markets
                 </Link>
               </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-14 text-lg"
-                asChild
-              >
-                <Link href="/watchlist" onClick={closeMobileMenu}>
-                  <Star className="h-5 w-5 mr-3" />
+              <Button variant="ghost" asChild>
+                <Link href="/watchlist">
+                  <Star className="h-4 w-4 mr-2" />
                   Watchlist
                 </Link>
               </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-14 text-lg"
-                asChild
-              >
-                <Link href="/portfolio" onClick={closeMobileMenu}>
-                  <Wallet className="h-5 w-5 mr-3" />
+              <Button variant="ghost" asChild>
+                <Link href="/portfolio">
+                  <Wallet className="h-4 w-4 mr-2" />
                   Portfolio
                 </Link>
               </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-14 text-lg"
-                asChild
-              >
-                <Link href="/converter" onClick={closeMobileMenu}>
-                  <ArrowRightLeft className="h-5 w-5 mr-3" />
+              <Button variant="ghost" asChild>
+                <Link href="/converter">
+                  <ArrowRightLeft className="h-4 w-4 mr-2" />
                   Converter
                 </Link>
               </Button>
             </nav>
-          </div>
 
-          <div className="p-6 border-t border-border">
-            <div className="flex justify-center">
+            {/* Right Side */}
+            <div className="flex items-center gap-2">
+              <div className="hidden md:block">
+                <SearchBar />
+              </div>
               <ThemeToggle />
+              <Button
+                variant="ghost"
+                className="md:hidden"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </Button>
             </div>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 }
