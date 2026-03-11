@@ -30,13 +30,7 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-sm border-b border-border"
-            : "bg-transparent"
-        }`}
-      ></header>
+      <header className="sticky top-0 z-50 w-full bg-background border-b border-border"></header>
 
       {/* Mobile Menu Overlay */}
       <div
