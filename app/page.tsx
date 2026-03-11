@@ -19,7 +19,7 @@ export default function HomePage() {
       <section className="relative flex items-center px-8 py-12">
         {/* Top left gradient */}
         <div className="absolute -top-16 left-0 -z-10 pointer-events-none">
-          <div className="w-[600px] h-[700px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/4" />
+          <div className="w-[600px] h-[700px] bg-primary/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/4" />
         </div>
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
