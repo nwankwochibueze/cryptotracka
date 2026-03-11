@@ -16,7 +16,11 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* ── Hero ── */}
-      <section className="relative flex items-center px-8 py-12 overflow-hidden">
+      <section className="relative flex items-center px-8 py-12">
+        {/* Top left gradient */}
+        <div className="absolute -top-16 left-0 -z-10 pointer-events-none">
+          <div className="w-[600px] h-[700px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/4" />
+        </div>
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left — Text */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-6">
@@ -297,7 +301,11 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-4 py-24 mt-auto">
+      <section className="relative px-4 py-24 mt-auto">
+         {/* Bottom right gradient */}
+        <div className="absolute bottom-0 right-0 -z-10 pointer-events-none">
+          <div className="w-[500px] h-[500px] bg-primary/15 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+        </div>
         <div className="max-w-2xl mx-auto text-center">
           <div className="rounded-2xl bg-background border border-primary/50 p-12 space-y-6">
             <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
