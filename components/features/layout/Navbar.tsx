@@ -99,11 +99,11 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[100] bg-background md:hidden ${
+        className={`fixed inset-0 z-[100] bg-background md:hidden pt-safe ${
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         } transition-all duration-300 ease-in-out`}
       >
-        <div className="flex flex-col h-full pt-safe">
+        <div className="flex flex-col h-full">
           {/* Header with close button */}
           <div className="flex items-center justify-between p-6 border-b border-border">
             <Link
