@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { cn } from "@/lib/utils";
+import { useCoins } from "@/hooks/useCoins";
 
 interface SearchBarProps {
   className?: string;
@@ -17,24 +18,16 @@ export function SearchBar({ className, onResultClick }: SearchBarProps) {
   const debouncedSearch = useDebounce(searchQuery, 300);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const allCoins = [
-    { id: "bitcoin", name: "Bitcoin", symbol: "BTC" },
-    { id: "ethereum", name: "Ethereum", symbol: "ETH" },
-    { id: "solana", name: "Solana", symbol: "SOL" },
-    { id: "cardano", name: "Cardano", symbol: "ADA" },
-    { id: "ripple", name: "XRP", symbol: "XRP" },
-  ];
+  const { data: coins } = useCoins(20);
 
   const searchResults = debouncedSearch
-    ? allCoins.filter(
+    ? (coins || []).filter(
         (coin) =>
           coin.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
           coin.symbol.toLowerCase().includes(debouncedSearch.toLowerCase())
       )
-    : allCoins;
+    : (coins || []).slice(0, 6);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -54,7 +47,6 @@ export function SearchBar({ className, onResultClick }: SearchBarProps) {
 
   return (
     <div ref={containerRef} className={cn("relative w-full", className)}>
-      {/* Input */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <input
@@ -70,11 +62,12 @@ export function SearchBar({ className, onResultClick }: SearchBarProps) {
         />
       </div>
 
-      {/* Dropdown */}
       {open && (
         <div className="absolute top-full left-0 right-0 mt-1 z-[200] bg-background border border-border rounded-md shadow-lg overflow-hidden">
           {searchResults.length === 0 ? (
-            <div className="px-4 py-3 text-sm text-muted-foreground">No cryptocurrency found.</div>
+            <div className="px-4 py-3 text-sm text-muted-foreground">
+              No cryptocurrency found.
+            </div>
           ) : (
             <ul>
               {searchResults.map((coin) => (
