@@ -28,17 +28,21 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        mobileMenuOpen
-          ? "bg-background border-b border-border"
-          : scrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
-          : "bg-transparent"
-      }`}>
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          mobileMenuOpen
+            ? "bg-background border-b border-border"
+            : scrolled
+              ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+              : "bg-transparent"
+        }`}
+      >
         {/* Gradient blob — always rendered, hidden instantly when menu opens */}
-        <div className={`absolute top-0 left-0 -z-10 pointer-events-none overflow-visible transition-none ${
-          mobileMenuOpen ? "opacity-0" : "opacity-100"
-        }`}>
+        <div
+          className={`absolute top-0 left-0 -z-10 pointer-events-none overflow-visible transition-none ${
+            mobileMenuOpen ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <div className="w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
         </div>
 
@@ -88,7 +92,11 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -96,33 +104,55 @@ export function Navbar() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-x-0 top-16 bottom-0 z-[100] bg-background md:hidden ${
-        mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      } transition-all duration-300 ease-in-out`}>
+      <div
+        className={`fixed inset-x-0 top-16 bottom-0 z-[100] bg-background md:hidden ${
+          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        } transition-all duration-150 ease-in-out`}
+      >
         <div className="flex flex-col h-full">
           <div className="flex-1 overflow-auto p-6">
             <div className="mb-8">
               <SearchBar className="w-full" onResultClick={closeMobileMenu} />
             </div>
             <nav className="space-y-2">
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/markets" onClick={closeMobileMenu}>
-                  <TrendingUp className="h-5 w-5 mr-3" />Markets
+                  <TrendingUp className="h-5 w-5 mr-3" />
+                  Markets
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/watchlist" onClick={closeMobileMenu}>
-                  <Star className="h-5 w-5 mr-3" />Watchlist
+                  <Star className="h-5 w-5 mr-3" />
+                  Watchlist
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/portfolio" onClick={closeMobileMenu}>
-                  <Wallet className="h-5 w-5 mr-3" />Portfolio
+                  <Wallet className="h-5 w-5 mr-3" />
+                  Portfolio
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/converter" onClick={closeMobileMenu}>
-                  <ArrowRightLeft className="h-5 w-5 mr-3" />Converter
+                  <ArrowRightLeft className="h-5 w-5 mr-3" />
+                  Converter
                 </Link>
               </Button>
             </nav>
