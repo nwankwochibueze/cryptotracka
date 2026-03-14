@@ -171,7 +171,12 @@
   body {
     font-family: var(--font-dm-sans);
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-syne);
   }
 }
@@ -188,6 +193,11 @@
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+  @supports (padding-top: env(safe-area-inset-top)) {
+    .pt-safe {
+      padding-top: env(safe-area-inset-top);
     }
   }
 }

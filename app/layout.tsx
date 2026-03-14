@@ -20,6 +20,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "CoinPeek",
   description: "Real-time crypto market data",
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
 };
 
 export default function RootLayout({

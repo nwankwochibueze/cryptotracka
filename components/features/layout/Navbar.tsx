@@ -99,27 +99,11 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[100] bg-background/95 backdrop-blur-sm md:hidden ${
+        className={`fixed inset-0 top-16 z-[100] bg-background/95 backdrop-blur-sm md:hidden ${
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         } transition-all duration-300 ease-in-out`}
       >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-border">
-            <Link
-              href="/"
-              className="flex items-center gap-2"
-              onClick={closeMobileMenu}
-            >
-              <span className="font-bold text-xl">CoinPeek</span>
-            </Link>
-            <button
-              onClick={closeMobileMenu}
-              className="p-2 rounded-md hover:bg-accent"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
           <div className="flex-1 overflow-auto p-6">
             <div className="mb-8">
               <SearchBar className="w-full" onResultClick={closeMobileMenu} />
