@@ -28,11 +28,13 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
-          : "bg-transparent"
-      }`}>
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
         {/* Gradient blob — hidden when mobile menu is open */}
         {!mobileMenuOpen && (
           <div className="absolute top-0 left-0 -z-10 pointer-events-none overflow-visible">
@@ -98,12 +100,13 @@ export function Navbar() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-x-0 top-16 bottom-0 z-[100] bg-background md:hidden ${
-        mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      } transition-all duration-300 ease-in-out`}>
+      <div
+        className={`fixed inset-x-0 top-16 bottom-0 z-[100] bg-background md:hidden ${
+          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        } transition-all duration-300 ease-in-out`}
+      >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-border">
-            <span className="font-bold text-xl">Menu</span>
+          <div className="flex items-center justify-end p-6 border-b border-border">
             <button
               onClick={closeMobileMenu}
               className="p-2 rounded-md hover:bg-accent"
@@ -117,24 +120,44 @@ export function Navbar() {
               <SearchBar className="w-full" onResultClick={closeMobileMenu} />
             </div>
             <nav className="space-y-2">
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/markets" onClick={closeMobileMenu}>
-                  <TrendingUp className="h-5 w-5 mr-3" />Markets
+                  <TrendingUp className="h-5 w-5 mr-3" />
+                  Markets
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/watchlist" onClick={closeMobileMenu}>
-                  <Star className="h-5 w-5 mr-3" />Watchlist
+                  <Star className="h-5 w-5 mr-3" />
+                  Watchlist
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/portfolio" onClick={closeMobileMenu}>
-                  <Wallet className="h-5 w-5 mr-3" />Portfolio
+                  <Wallet className="h-5 w-5 mr-3" />
+                  Portfolio
                 </Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start h-14 text-lg" asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start h-14 text-lg"
+                asChild
+              >
                 <Link href="/converter" onClick={closeMobileMenu}>
-                  <ArrowRightLeft className="h-5 w-5 mr-3" />Converter
+                  <ArrowRightLeft className="h-5 w-5 mr-3" />
+                  Converter
                 </Link>
               </Button>
             </nav>
