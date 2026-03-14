@@ -99,7 +99,7 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 top-16 z-[100] bg-background/95 backdrop-blur-sm md:hidden ${
+        className={`fixed inset-0 z-[100] bg-background md:hidden ${
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         } transition-all duration-300 ease-in-out`}
       >
