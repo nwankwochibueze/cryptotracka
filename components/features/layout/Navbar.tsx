@@ -104,7 +104,7 @@ export function Navbar() {
         } transition-all duration-300 ease-in-out`}
       >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-border">
+          <div className="flex items-center justify-between p-4 border-b border-border">
             <Link
               href="/"
               className="flex items-center gap-2"
@@ -112,9 +112,13 @@ export function Navbar() {
             >
               <span className="font-bold text-xl">CoinPeek</span>
             </Link>
-            <Button variant="ghost" onClick={closeMobileMenu}>
+            <button
+              onClick={closeMobileMenu}
+              className="p-2 rounded-md hover:bg-accent"
+              aria-label="Close menu"
+            >
               <X className="h-6 w-6" />
-            </Button>
+            </button>
           </div>
           <div className="flex-1 overflow-auto p-6">
             <div className="mb-8">
