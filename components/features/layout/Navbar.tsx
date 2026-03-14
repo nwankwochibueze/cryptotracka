@@ -35,12 +35,12 @@ export function Navbar() {
           ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
           : "bg-transparent"
       }`}>
-        {/* Gradient blob — hidden when mobile menu is open */}
-        {!mobileMenuOpen && (
-          <div className="absolute top-0 left-0 -z-10 pointer-events-none overflow-visible">
-            <div className="w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
-          </div>
-        )}
+        {/* Gradient blob — always rendered, hidden instantly when menu opens */}
+        <div className={`absolute top-0 left-0 -z-10 pointer-events-none overflow-visible transition-none ${
+          mobileMenuOpen ? "opacity-0" : "opacity-100"
+        }`}>
+          <div className="w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
+        </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -88,7 +88,7 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
               >
-                <Menu className="h-6 w-6" />
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
           </div>
@@ -100,15 +100,6 @@ export function Navbar() {
         mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
       } transition-all duration-300 ease-in-out`}>
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-end p-6 border-b border-border">
-            <button
-              onClick={closeMobileMenu}
-              className="p-2 rounded-md hover:bg-accent"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
           <div className="flex-1 overflow-auto p-6">
             <div className="mb-8">
               <SearchBar className="w-full" onResultClick={closeMobileMenu} />
